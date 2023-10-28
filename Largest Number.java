@@ -1,6 +1,12 @@
 class Solution {
     public String largestNumber(int[] nums) {
+        Integer[] numsArray = new Integer[nums.length];
+        for(int i = 0;i<nums.length;i++) {
+            numsArray[i] = nums[i];
+        }
+        
         String result="";
+
         Comparator<Integer> myComparotor = new Comparator<Integer>() {
             public int compare(Integer x, Integer y){
                 String order1=String.valueOf(x)+String.valueOf(y);
@@ -13,7 +19,7 @@ class Solution {
                 return 0;
             }
         };
-        Integer[] numsArray = Arrays.stream(nums).boxed().toArray(Integer[]::new);
+       
         Arrays.sort(numsArray,myComparotor);
         if(numsArray[0]==0){
             return "0";
